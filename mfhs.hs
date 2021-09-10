@@ -1,11 +1,7 @@
-double x = x + x
-
-quadruple x = double (double x)
-
-fac n = product [1 .. n]
-
-facOdd n = product [1,3 .. n]
-
+--double x = x + x
+--quadruple x = double (double x)
+--fac n = product [1 .. n]
+--facOdd n = product [1,3 .. n]
 
 pyramid :: String -> String
 pyramid str = pyram 0 str where 
@@ -20,3 +16,7 @@ pyramid str = pyram 0 str where
 
 
 printPyramid = putStr (pyramid "Functional programming is fun")
+
+--double x = incr (incr 0)
+--  where incr y = x + y
+
