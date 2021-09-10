@@ -1,0 +1,22 @@
+Applicative order
+
+double 5 = incr (incr 0)
+  where incr y = 5 + y
+  
+=> {Definition of incr}
+
+double 5 = incr (5 + 0)
+  where incr y = 5 + y
+
+=> {Definiton of +}
+
+double 5 = incr (5)
+  where incr = 5 + y
+  
+=> {Definition of incr}
+
+double 5 = 5 + 5
+
+=> {Definition of +}
+
+double 5 = 10
