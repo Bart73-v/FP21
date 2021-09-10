@@ -3,7 +3,7 @@
 Time to import some Haskell standard libraries, and of course the function 'say' from the Say module
 
 > import Data.List
-> import Say (say)
+> import Say (say, decimals)
 
 Define the type of the test set; this is a list of inputs and associated allowable outputs.
 
