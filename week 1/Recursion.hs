@@ -1,3 +1,6 @@
+--Daan Eijkman
+--Bart Veldman
+
 triangle :: Int -> String
 triangle n = tri (n-1) 1 ++ replicate (n*2-1) '*' ++ "\n"
 

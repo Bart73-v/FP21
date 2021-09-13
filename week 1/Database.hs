@@ -1,3 +1,6 @@
+--Daan Eijkman
+--Bart Veldman
+
 module Database where
 
 type Person = (Name, Age, FavouriteCourse)

@@ -1,3 +1,7 @@
+Daan Eijkman
+Bart Veldman
+
+
 Applicative order
 
 double 5 = incr (incr 0)

@@ -1,3 +1,6 @@
+--Daan Eijkman
+--Bart Veldman
+
 module Hello where
 
 import Say (say, decimals)

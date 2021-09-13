@@ -1,3 +1,6 @@
+--Daan Eijkman
+--Bart Veldman
+
 module Say where
 
 say :: Integer -> String
