@@ -23,7 +23,7 @@ f5 :: Bool -> a -> a -> (a, a)
 f5 b x y   = if b then (x,y) else (y,x)
 
 f6 :: a -> b -> a
-f6 x       = \y -> x
+f6 x y = x
 
 f7 :: [Char] -> [Char]
 f7         = ("Haskell" ++)
