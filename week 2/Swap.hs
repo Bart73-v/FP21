@@ -1,5 +1,8 @@
 module Swap where
 
+--Daan Eijkman
+--Bart Veldman
+
 --swap :: (Int, Int) -> (Int, Int)
 swap (x, y) = (y, x)
 

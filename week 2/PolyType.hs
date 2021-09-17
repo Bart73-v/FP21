@@ -1,5 +1,8 @@
 module PolyType where
 
+--Daan Eijkman
+--Bart Veldman
+
 f8 x y  = if x <= y then x else y
 
 f9 x y  = not x || y

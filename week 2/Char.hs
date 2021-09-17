@@ -1,5 +1,8 @@
 module Char where
 
+--Daan Eijkman
+--Bart Veldman
+
 import Data.Char
 
 (~~) :: String -> String -> Bool
