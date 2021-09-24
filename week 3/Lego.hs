@@ -3,8 +3,14 @@ module Lego where
 import Data.List
 import Data.Tuple
 
---removeAt :: Int -> [a] -> [a]
+--Daan Eijkman
+--Bart Veldman
 
---sortWithPos :: (Ord a) => [a] -> [(a,Int)]
+removeAt :: Int -> [a] -> [a]
+removeAt n xs = [ x | (i,x) <- zip [1..] xs, i /= n]
+
+sortWithPos :: (Ord a) => [a] -> [(a,Int)]
+sortWithPos xs = sortOn fst (zip xs [0..])
+
 
 --sortedPos :: (Ord a) => [a] -> [(a,Int)]

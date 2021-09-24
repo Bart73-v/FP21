@@ -2,6 +2,9 @@ module Obfuscate where
 
 import Data.Char
 
+--Daan Eijkman
+--Bart Veldman
+
 --cambridge :: String -> String
 
 meme :: String
