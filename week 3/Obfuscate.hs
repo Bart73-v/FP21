@@ -22,4 +22,6 @@ jumble (x:xs)
 
 jumble' []           = []
 jumble' [x]          = [x]
-jumble' (x1:x2:xs)     = permutations (x1:x2:xs) !! 0
+jumble' (x1:x2:xs)    
+       | xs == []  = [x1,x2]
+       | otherwise = permutations (x1:x2:xs) !! 3
