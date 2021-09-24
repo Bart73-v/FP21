@@ -2,14 +2,30 @@ module ListComprehensions where
 
 import Data.List
 
-g0 as bs = [ (a,b) | a <- as, b <- bs ]
+--Daan Eijkman
+--Bart Veldman
 
-g1 n y   = [ y | i <- [1..n] ]
+-- Creates a list of all possible combinations of elements from as and bs
+combinations :: [a] -> [b] -> [(a,b)]
+combinations as bs = [ (a,b) | a <- as, b <- bs ]
 
-g2 n xs  = [ x | (i,x) <- zip [0..] xs, i < n ]
+-- Creates a list containing n times element y
+-- Overloaded, Num n
+repeat' :: (Num a, Enum a) => a -> b -> [b]
+repeat' n y   = [ y | i <- [1..n] ]
 
-g3 a xs  = [ i | (i,x) <- zip [0..] xs, x == a]
+-- Take n elements from xs
+take' :: (Num a, Enum a, Ord a) => a -> [b] -> [b]
+take' n xs  = [ x | (i,x) <- zip [0..] xs, i < n ]
 
-g4 xs ys = [ e | (x,y) <- zip xs ys, e <- [x,y] ]
+-- Get the indices of element a in list xs
+elemIndices' :: (Eq a) => a -> [a] -> [Integer]
+elemIndices' a xs  = [ i | (i,x) <- zip [0..] xs, x == a]
 
-g5 xss   = [ x | xs <- xss, x <- xs ]
+-- Zip but instead of tuples create a list of all elements
+zipList :: [a] -> [a] -> [a]
+zipList xs ys = [ e | (x,y) <- zip xs ys, e <- [x,y] ]
+
+-- Concatenate all elements
+concat' :: [[a]] -> [a]
+concat' xss   = [ x | xs <- xss, x <- xs ]
