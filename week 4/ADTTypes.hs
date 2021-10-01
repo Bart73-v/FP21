@@ -2,12 +2,12 @@ module ADTTypes where
 
 import ADTs
 
---isWeekend :: ???
+isWeekend :: Day -> Bool
 isWeekend Sat = True
 isWeekend Sun = True
 isWeekend _   = False
 
---bval :: ???
+bval :: Prop -> Bool
 bval prop = case prop of
               T         -> True
               F         -> False
