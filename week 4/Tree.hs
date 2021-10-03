@@ -79,13 +79,23 @@ fromAscList []        = Leaf
 fromAscList xs        = Node r (fromAscList l) (fromAscList rs)
   where (l, (r:rs)) = splitAt ((length xs) `div` 2) xs
 
---breadthFirst :: Tree a -> [a]
---breadthFirst Leaf         = []
---breadthFirst (Node x l r) = bfs' (Node x l r) [x] []
 
---bfs' :: Tree a -> [a] -> [a] -> [a]
---bfs' (Node y l r) [] ys         = ys
---bfs' (Node y l r) (x:xs) ys     = ()
+breadthFirst :: Tree a -> [a]
+breadthFirst Leaf         = []
+breadthFirst (Node x l r) = bfs' (Node x l r) [] []
+
+-- Current node -> Queue -> Results
+bfs' :: Tree a -> [Tree a] -> [a] -> [a]
+bfs' (Node y l r) [] ys         = ys
+bfs' (Node y l r) xs ys     = bfs' (head queue) queue (ys ++ [y])
+  where queue = xs ++ (children l r)
+
+-- get all non-leaf children
+children :: Tree a -> Tree a -> [Tree a]
+children Leaf Leaf                        = []
+children Leaf (Node y l r)                = [(Node y l r)]
+children (Node x l r) Leaf                = [(Node x l r)]
+children (Node x l r) (Node y l' r')      = [(Node x l r), (Node y l' r')]
 
 
 
