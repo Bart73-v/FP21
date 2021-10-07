@@ -2,13 +2,17 @@ import Data.List
 import Data.Char
 import Data.Function
 import qualified Data.Map as M
+--Daan Eijkman
+--Bart Veldman
 
 wordFrequency :: String -> [(String,Int)]
 wordFrequency  = map (\x->(head x,length x)) . group . sort . words
 
---mostFrequentOfLength :: Int -> String -> ??
+mostFrequentOfLength :: Int -> String -> [String]
+mostFrequentOfLength n = map fst . sortOn snd . filter (\(s,x) -> length s > n) . wordFrequency
 
---wordLengthFrequency :: String -> ??
+wordLengthFrequency :: String -> [(Int, Int)]
+wordLengthFrequency = map (\x -> (head x, length x)) . group . sort . map length . words
 
 --anagrams :: String -> ??
 
@@ -21,5 +25,5 @@ wordFrequency  = map (\x->(head x,length x)) . group . sort . words
  - (The -O flag turns on optimizations)
  -}    
 main :: IO ()
-main = onStdin $ wordFrequency  -- change this to run a different function from the commandline
+main = onStdin $ mostFrequentOfLength 5  -- change this to run a different function from the commandline
   where onStdin f = getContents >>= (mapM_ print . f . filter (\x->isAlphaNum x || isSpace x))

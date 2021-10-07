@@ -3,6 +3,8 @@ module ListHOF where
 import Data.List
 import Data.Char
 import Data.Function
+--Daan Eijkman
+--Bart Veldman
 
 --sortLength :: [String] -> [String]
 

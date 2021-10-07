@@ -2,10 +2,18 @@ module Unfold where
 
 import Data.List (unfoldr)
 import Prelude hiding (take,zip,(++))
+--Daan Eijkman
+--Bart Veldman
 
--- bits :: Int -> [Int]
--- zip :: [a] -> [b] -> [(a,b)]
--- take :: Int -> [a] -> [a]
+--bits :: Int -> [Int]
+
+
+--zip :: [a] -> [b] -> [(a,b)]
+
+
+--take :: Int -> [a] -> [a]
+
+
 -- primes :: [Integer]
 
 apo :: (t -> Either [a] (a, t)) -> t -> [a]

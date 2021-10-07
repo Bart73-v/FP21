@@ -1,6 +1,8 @@
 module HOF where
 
 import Prelude hiding (const)
+--Daan Eijkman
+--Bart Veldman
 
 {- exercise 5.1 -}
 
@@ -31,4 +33,10 @@ f3 = (min 100) . (max 0)
 
 f4 :: [a] -> Bool
 f4 = (<5) . length
+
+f4' :: [a] -> Bool
+f4' = (5<) . length
+
+f4'' :: [a] -> Bool
+f4'' = ((<)5) . length
 

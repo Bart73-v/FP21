@@ -1,4 +1,6 @@
 module ShortCircuit where
+--Daan Eijkman
+--Bart Veldman
 
 andl, andr, orl, orr :: [Bool] -> Bool
 
