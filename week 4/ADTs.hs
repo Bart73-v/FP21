@@ -1,5 +1,8 @@
 module ADTs where
 
+  --Daan Eijkman
+--Bart Veldman
+
 data Day       = Mon | Tue | Wed | Thu | Fri | Sat | Sun
   deriving Show
 

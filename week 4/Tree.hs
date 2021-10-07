@@ -1,5 +1,8 @@
 module Tree where
 
+  --Daan Eijkman
+--Bart Veldman
+
 data Tree a = Leaf | Node a (Tree a) (Tree a)
   deriving Show
 

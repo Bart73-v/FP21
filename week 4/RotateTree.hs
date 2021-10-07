@@ -1,5 +1,8 @@
 module RotateTree where
 
+    --Daan Eijkman
+--Bart Veldman
+
 import Tree
 
 --rotateLeft :: Tree a -> Tree a

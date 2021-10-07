@@ -1,5 +1,8 @@
 module ADTTypes where
 
+    --Daan Eijkman
+--Bart Veldman
+
 import ADTs
 
 isWeekend :: Day -> Bool

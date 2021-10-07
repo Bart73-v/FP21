@@ -1,5 +1,8 @@
 module Words where
 
+    --Daan Eijkman
+--Bart Veldman
+
 import Tree
 import qualified Data.List as List
 
