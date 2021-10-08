@@ -6,7 +6,11 @@ import qualified Data.Map as M
 --Bart Veldman
 
 wordFrequency :: String -> [(String,Int)]
-wordFrequency  = map (\x->(head x,length x)) . group . sort . words
+--5.8.1:
+--wordFrequency  = map (\x->(head x,length x)) . group . sort . words
+
+--5.8.4: ??? Can't figure it out
+--wordFrequency = . M.fromListWith () . map (\x -> (1, x)) . words
 
 mostFrequentOfLength :: Int -> String -> [String]
 mostFrequentOfLength n = map fst . sortOn snd . filter (\(s,x) -> length s > n) . wordFrequency
@@ -14,7 +18,14 @@ mostFrequentOfLength n = map fst . sortOn snd . filter (\(s,x) -> length s > n) 
 wordLengthFrequency :: String -> [(Int, Int)]
 wordLengthFrequency = map (\x -> (head x, length x)) . group . sort . map length . words
 
---anagrams :: String -> ??
+
+-- will group at most 2 anagrams (???)
+anagrams :: String -> [[String]]
+anagrams = groupBy anagram' . map head . group . sort . words
+
+anagram' :: String -> String -> Bool
+anagram' xs ys = sort xs == sort ys
+
 
 {- this 'main' function is only here for the compiled, stand-alone version 
  - calling it from within GHCi is problematic since GHCi itself needs stdin!
