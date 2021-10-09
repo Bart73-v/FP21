@@ -23,7 +23,9 @@ apo f seed = case f seed of
                Right (a,ns) -> a : apo f ns
 
 --(++) :: [a] -> [a] -> [a]
---xs ++ ys = apo 
+--xs ++ ys = apo () 
 
 -- insert :: (Ord a) => a -> [a] -> [a]
+-- insert x xs = apo ( ) 0
+
 -- unfoldrApo :: (t -> Maybe (a, t)) -> t -> [a]
