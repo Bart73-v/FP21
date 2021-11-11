@@ -1,5 +1,8 @@
 module Pronounceable where
 
+--Daan Eijkman
+--Bart Veldman
+
 import Data.List
 import Say (say)
 

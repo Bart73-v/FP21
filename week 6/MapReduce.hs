@@ -1,5 +1,8 @@
 module MapReduce where
 
+--Daan Eijkman
+--Bart Veldman
+
 import Data.List
 import Data.Monoid
 import Data.Function

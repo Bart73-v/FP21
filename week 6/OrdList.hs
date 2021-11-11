@@ -1,5 +1,8 @@
 module OrdList where
 
+--Daan Eijkman
+--Bart Veldman
+
 import Data.List
 
 --newtype OrdList a = OrdList ...
