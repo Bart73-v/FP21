@@ -1,4 +1,6 @@
 > module FoldrFusion where
+--Daan Eijkman
+--Bart Veldman
 >
 > import Prelude hiding (map)
 
@@ -32,17 +34,50 @@ Namely as follows:
 = foldr (g . f) e
 
 Since the "THEN" part of the fusion law can only be applied if the "IF" part is true,
-we need to show that ..  
+we need to show that foldr g e (\x xs -> f x : xs) = (g . f) x ((foldr g e) y) holds.
+
+{-
+f (g x y) = h x (f y)
+foldr g e (\x xs -> f x : xs) = (g . f) x ((foldr g e) y)
+
+foldr g e (\x y->f x : y) = g . f x (foldr g e y)
+
+f = foldr g e 
+g = \x xs -> f x : xs
+e = []
+h = g . f
+-}
 
 Which is the case since:
 
-  ...
+  foldr g e (\x y->f x : y)
+  -------------------------
+= 
+  ????
+= 
+  -------------------------
+= g . f x (foldr g e y)
 
 --------------------------------------
 To prove:  map (f . g) = map f . map g
 
+-- foldr-map fusion law: foldr g e . map f = foldr (g . f) e
+-- (\x xs-> f x : xs) . g = (\x xs-> f (g x) : xs)
+-- map f = foldr (\x xs->f x : xs) []
 
+    map (f . g)
+    -----------------------------------   map as foldr
+  = foldr (\x xs-> (f . g) x : xs) []
+    -----------------------------------
 
+    ???
+
+    -----------------------------------
+  = foldr ((\x xs-> f x : xs) . g) []
+    -----------------------------------   foldr-map fusion
+  = foldr (\x xs-> f x : xs) [] . map g
+    -----------------------------------   map as foldr
+  = map f . map g
 ----------------------------------------------
 To prove:  mconcat . concat = mconcat . map mconcat
 

@@ -1,4 +1,6 @@
 > module MonoidInduction where
+--Daan Eijkman
+--Bart Veldman
 > import Prelude hiding (foldl,foldr,mconcat)
 >
 > foldr :: (a -> b -> b) -> b -> [a] -> b

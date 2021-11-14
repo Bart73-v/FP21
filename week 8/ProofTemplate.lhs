@@ -1,4 +1,6 @@
 Local definitions:
+--Daan Eijkman
+--Bart Veldman
 
 > import Prelude hiding (++)
 > 
@@ -44,9 +46,9 @@ IH: as ++ (ys ++ zs) = (as ++ ys) ++ zs, for all ys and zs
     (a:as) ++ (ys ++ zs)
     --------------------  definition of ++
   = a : (as ++ (ys ++ zs))
-  
-  = ...?
-
+    --------------------  IH
+  = a : ((as ++ ys) ++ zs)
+    --------------------  definition of ++
   = (a:(as ++ ys)) ++ zs
     --------------         definition of ++
   = ((a:as) ++ ys) ++ zs
