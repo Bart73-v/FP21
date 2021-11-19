@@ -15,26 +15,57 @@ instance (Show a) => Show (Stream a) where
 from :: Integer -> Stream Integer
 from n = n :> from (n + 1)
 
---head :: Stream a -> a
+head :: Stream a -> a
+head (x :> y) = x
 
---tail :: Stream a -> Stream a
+tail :: Stream a -> Stream a
+tail (x :> y) = y
 
---repeat :: a -> Stream a
+repeat :: a -> Stream a
+repeat x = x :> repeat x
 
---map :: (a -> b) -> (Stream a -> Stream b)
+map :: (a -> b) -> (Stream a -> Stream b)
+map f (x :>  y) = f x :> map f y
 
---zipWith :: (a -> b -> c) -> (Stream a -> Stream b -> Stream c)
+zipWith :: (a -> b -> c) -> (Stream a -> Stream b -> Stream c)
+zipWith f (x :> xs) (y :> ys) = (f x y) :> zipWith f xs ys  
 
---filter :: (a -> Bool) -> Stream a -> Stream a
+filter :: (a -> Bool) -> Stream a -> Stream a
+filter f (x :> xs)
+  | f x == True   = x :> filter f xs
+  | f x == False  = filter f xs
 
---toList :: Stream a -> [a]
+-- 9.4.3
+-- filter (\x->False) (from 0) will try to filter out each element from the Stream since each element equals False.
+-- The implementation of show shows the first 16 elements, however this function will never get to 16 elements and since 
+-- a Stream is infinite this function will simply hang
 
---cycle :: [a] -> Stream a
+toList :: Stream a -> [a]
+toList (x :> xs) = [x] ++ toList xs
+
+cycle :: [a] -> Stream a
+cycle (x:xs) = cycle' (x:xs) (x:xs)
+
+cycle' :: [a] -> [a] -> Stream a
+cycle' []     ys  = cycle' ys ys
+cycle' (x:xs) ys  = x :> cycle' xs ys
 
 nat, fib :: Stream Integer
 nat = 0 :> zipWith (+) nat (repeat 1)
 fib = 0 :> 1 :> zipWith (+) fib (tail fib)
 
---primetwins :: Stream (Integer,Integer)
+primetwins :: Stream (Integer,Integer)
+primetwins = primetwins' prime
 
---combine :: Stream a -> Stream a -> Stream a
+primetwins' :: Stream Integer -> Stream (Integer,Integer)
+primetwins' (x :> y :> ys)
+  | y-x <= 2  = (x,y) :> primetwins' (y :> ys)
+  | otherwise = primetwins' (y :> ys)
+
+prime :: Stream Integer
+prime = filter isPrime nat
+
+isPrime p = foldl (\acc x -> acc * x `mod` p) 1 [2..(p-2)] == 1
+
+combine :: Stream a -> Stream a -> Stream a
+combine (x :> xs) (y :> ys) = x :> y :> combine xs ys
