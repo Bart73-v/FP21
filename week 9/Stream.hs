@@ -1,5 +1,8 @@
 module Stream where
 
+--Daan Eijkman
+--Bart Veldman
+
 import qualified Data.List as List
 import Prelude hiding (head, tail, repeat, map, zipWith, filter, take, drop, concat, cycle, sum)
 

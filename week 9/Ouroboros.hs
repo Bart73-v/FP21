@@ -1,5 +1,8 @@
 module Ouroboros where
 
+--Daan Eijkman
+--Bart Veldman
+
 import Data.Maybe
 
 type AssocList k a = [(k,a)]

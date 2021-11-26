@@ -1,5 +1,8 @@
 module Nat where
 
+--Daan Eijkman
+--Bart Veldman
+
 data Nat = O | S Nat
   deriving Show
 

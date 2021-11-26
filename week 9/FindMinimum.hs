@@ -1,5 +1,8 @@
 module FindMinimum where
 
+--Daan Eijkman
+--Bart Veldman
+
 import Data.List
 
 selectionSort :: (Ord a) => [a] -> [a]

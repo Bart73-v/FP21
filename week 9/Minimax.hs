@@ -1,5 +1,8 @@
 module Minimax where
 
+--Daan Eijkman
+--Bart Veldman
+
 type Position = (Integer, Integer)
 
 -- moves :: Position -> [Position]
